@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>German Day-Ahead Spread Analysis | Tim-Louis Wilken</title>
+  <meta name="description" content="Is the daily price spread, the core of battery arbitrage, still tied to the price level? A reconstruction of FlexPower&#x27;s blog analysis, extended to October 2026.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand">Tim-Louis Wilken</a>
+    <div class="nav-links">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#education">Education</a>
+    </div>
+    <div class="nav-actions">
+      <a class="icon-link" href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+      <a class="icon-link" href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+      <a class="btn btn-primary btn-sm" href="../cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
+    </div>
+  </div>
+</nav>
+<main class="container section">
+  <a class="back" href="../index.html#projects">← Back to Projects</a>
+  <header class="section-head detail-head">
+    <h2>German Day-Ahead Spread Analysis</h2>
+    <p>Is the daily price spread, the core of battery arbitrage, still tied to the price level? A reconstruction of FlexPower&#x27;s blog analysis, extended to October 2026.</p>
+  </header>
+  <article class="card detail">
+    <div class="cover detail-cover"><img src="../images/projects/spread.png" alt="German day-ahead high-low spread versus price level, 2018 to 2026" loading="lazy"><span class="year">2026</span></div>
+    <div class="detail-body">
+      <p class="eyebrow">2026</p>
+      <div style="margin-top: 1rem;"><div class="tags"><span class="tag">Market Analysis</span><span class="tag">Germany</span><span class="tag">BESS Spreads</span><span class="tag">Python</span></div></div>
+      <div class="detail-links"><a href="https://github.com/TimLouisWilken/de-price-decoupling" target="_blank" rel="noreferrer">Code</a></div>
+      <div class="prose">
+        <p>Until 2023 the German day-ahead price level and its daily high-low spread moved together, because gas set both. Since 2024 they have come apart: solar pushes midday prices down while the evening ramp is still set by gas. The analysis rebuilds the chart with Energy-Charts/SMARD data from 2018 to October 2026 and splits it by season.</p>
+        <h2>Highlights</h2>
+        <ul><li>In winter the spread is still about 0.8 times the price level, as before 2023.</li><li>In spring and summer it has been 1.6 to 1.8 times the price level since 2024.</li><li>The annual mean spread rose from 111 (2024) to 124 (2025) and 159 EUR/MWh (2026 to date), while the price level rose only moderately.</li><li>The drop after June 2024 was seasonal; the rise of summer spreads from year to year is structural.</li></ul>
+      </div>
+      <div class="gallery"><figure><img src="../images/projects/spread-heatmap.png" alt="Monthly high-low spread and spread-to-price ratio, 2018 to 2026." loading="lazy"><figcaption>Monthly high-low spread and spread-to-price ratio, 2018 to 2026.</figcaption></figure><figure><img src="../images/projects/spread-hourly.png" alt="Average daily price profile in winter and summer: the solar midday trough drives the spread." loading="lazy"><figcaption>Average daily price profile in winter and summer: the solar midday trough drives the spread.</figcaption></figure></div>
+    </div>
+  </article>
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2026 Tim-Louis Wilken</p>
+    <div class="footer-links">
+      <a href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="../cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
