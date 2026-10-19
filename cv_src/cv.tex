@@ -17,7 +17,7 @@
 \usepackage{xcolor}
 \usepackage{array}
 \usepackage{tabularx}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,pdftitle={Tim-Louis Wilken, CV},pdfauthor={Tim-Louis Wilken}]{hyperref}
 \usepackage{microtype}
 
 %--- colours -------------------------------------------------------------------
@@ -33,12 +33,13 @@
 
 %--- helpers -------------------------------------------------------------------
 \setlength{\parindent}{0pt}
+\linespread{0.97}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 
 % one CV entry header:  ORG (left, bold) ......... LOCATION (right)
 %                       Role (left, italic) ....... Dates (right, italic)
 \newcommand{\entry}[4]{%
-  \par\vspace{3pt}\nobreak
+  \par\vspace{2pt}\nobreak
   {\textbf{#1}\nobreak\hfill\nobreak{\color{grey}#2}}\par\nobreak\vspace{1pt}
   {\textit{#3}\nobreak\hfill\nobreak{\itshape\color{grey}#4}}\par\nobreak\vspace{1pt}%
 }
@@ -70,7 +71,7 @@
       {M.Sc.\ Energy Systems and Data Analytics (UCL); thesis as visiting student (Oxford)}{Sep 2025 -- Sep 2026}
 \begin{pts}
   \item \textbf{Average 76.8/100} across all taught modules (Distinction $\geq$ 70; dissertation pending). Top marks: Statistics for Energy Analytics \textbf{89}, Energy and Transport Analytics \textbf{85}, Econometrics of Energy Markets \textbf{82}.
-  \item Thesis, written at Oxford (June--September 2026, fee waiver for the visiting studentship), supervised by A.\ Stratigakos (UCL), T.\ Morstyn and Y.\ Zhou (Oxford): \textit{Deadline Commitments for GPU Jobs under a Forecast-Uncertain Non-Firm Grid Connection}. Two-stage stochastic MILP with ECMWF weather ensembles and chance constraints; meets 6--21\,pp more deadlines than a greedy scheduler.
+  \item Thesis, written at Oxford (Jun--Sep 2026, fee waiver), supervised by A.\ Stratigakos (UCL), T.\ Morstyn and Y.\ Zhou (Oxford): \textit{Deadline Commitments for GPU Jobs under a Forecast-Uncertain Non-Firm Grid Connection}. Two-stage stochastic MILP with ECMWF ensembles and chance constraints; 6--21\,pp more deadlines than a greedy scheduler.
 \end{pts}
 
 \entry{TECHNICAL UNIVERSITY OF MUNICH (TUM)}{Munich, Germany}
@@ -86,9 +87,9 @@
 %==============================================================================
 \section{Technical Projects}
 \begin{pts}
-  \item \textbf{GB Day-Ahead Price Forecasting}: online ensemble of 13 models (LSTM, Transformer, gradient boosting, random forests, LEAR and others), retrained daily and combined via Bernstein Online Aggregation; 21\,\% lower MAE than the LEAR benchmark over 2024--2026 (Diebold--Mariano \mbox{$p < 0.001$}); calibrated probabilistic forecasts; in a day-ahead battery backtest (50\,MW / 100\,MWh) it captures 93--94\,\% of the perfect-foresight arbitrage revenue, vs.\ 90\,\% for LEAR and 75\,\% for persistence; strict leakage audit (pre-auction data only). \textit{(Python, PyTorch, scikit-learn;} \href{https://timlouiswilken.github.io/gb-dayahead-forecast/}{timlouiswilken.github.io/gb-dayahead-forecast}\textit{)}
+  \item \textbf{GB Day-Ahead Price Forecasting}: online ensemble of 13 models (LSTM, Transformer, gradient boosting, LEAR and others), retrained daily and combined via Bernstein Online Aggregation; 21\,\% lower MAE than the LEAR benchmark over 2024--2026 (Diebold--Mariano \mbox{$p < 0.001$}); calibrated probabilistic forecasts; in a day-ahead battery backtest (50\,MW / 100\,MWh) it captures 93--94\,\% of the perfect-foresight arbitrage revenue, vs.\ 90\,\% for LEAR and 75\,\% for persistence; strict leakage audit (pre-auction data only). \textit{(Python, PyTorch, scikit-learn;}\newline\textit{live daily at} \href{https://timlouiswilken.github.io/gb-dayahead-forecast/}{timlouiswilken.github.io/gb-dayahead-forecast}\textit{)}
   \item \textbf{BESS Trading Simulator}: web app for GB battery trading across day-ahead, intraday and imbalance markets on live Elexon BMRS data, with balancing-mechanism acceptances and a P\&L dashboard. \textit{(React, TypeScript; built with a fellow student, 2026;} \href{https://bess-trading-simulator.com}{bess-trading-simulator.com}\textit{)}
-  \item \textbf{Australian Electricity-Market Dynamics}: threshold vector error-correction (TVECM) analysis of how battery storage shapes SA--VIC wholesale price spillovers. \textit{(Python, statsmodels;}\newline\href{https://github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}{github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}\textit{)}
+  \item \textbf{Australian Electricity-Market Dynamics}: three-regime threshold vector error-correction (TVECM) analysis of how battery storage shapes SA--VIC wholesale price spillovers (52,608 half-hourly observations, 2SLS). \textit{(Python, statsmodels;}\newline\href{https://github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}{github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}\textit{)}
 \end{pts}
 
 %==============================================================================
