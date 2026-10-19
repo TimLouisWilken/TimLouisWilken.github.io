@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GB Day-Ahead Price Forecasting | Tim-Louis Wilken</title>
+  <meta name="description" content="A continually retrained forecaster for the 24 hourly prices of the GB day-ahead auction, evaluated the way a trading desk would use it.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand">Tim-Louis Wilken</a>
+    <div class="nav-links">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#education">Education</a>
+    </div>
+    <div class="nav-actions">
+      <a class="icon-link" href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+      <a class="icon-link" href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+      <a class="btn btn-primary btn-sm" href="../cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
+    </div>
+  </div>
+</nav>
+<main class="container section">
+  <a class="back" href="../index.html#projects">← Back to Projects</a>
+  <header class="section-head detail-head">
+    <h2>GB Day-Ahead Price Forecasting</h2>
+    <p>A continually retrained forecaster for the 24 hourly prices of the GB day-ahead auction, evaluated the way a trading desk would use it.</p>
+  </header>
+  <article class="card detail">
+    <div class="cover detail-cover natural"><img class="fill" style="object-position: center top;" src="../images/projects/dayahead-chart.jpg" alt="Live GB day-ahead forecast page with hourly prices and uncertainty band" loading="lazy"><span class="year">2026</span></div>
+    <div class="detail-body">
+      <p class="eyebrow">2026</p>
+      <div style="margin-top: 1rem;"><div class="tags"><span class="tag">Forecasting</span><span class="tag">Online Learning</span><span class="tag">BESS</span><span class="tag">PyTorch</span></div></div>
+      <div class="detail-links"><a class="btn btn-primary cta" href="https://timlouiswilken.github.io/gb-dayahead-forecast/" target="_blank" rel="noreferrer">Open the live forecast →</a><a href="https://github.com/TimLouisWilken/gb-dayahead-research" target="_blank" rel="noreferrer">Code</a></div>
+      <div class="prose">
+        <p>Electricity prices drift between regimes, from the 2021–22 gas crisis to the normalisation since 2024, so a model trained once slowly goes stale. Here every model keeps learning: each morning before the auction it forecasts the next day, and once the prices are known it learns from them.</p><p>Thirteen models from different families run side by side (LSTM, Transformer, TCN, DNN, gradient boosting, random forests, LEAR, a merit-order model and the Chronos foundation model). Bernstein Online Aggregation combines them per hour and updates the weights every day.</p>
+        <h2>Highlights</h2>
+        <ul><li>Out of sample from January 2024 to September 2026: MAE of 8.73 EUR/MWh, 21 % below the LEAR benchmark (11.07) and better than every single model (Diebold–Mariano p &lt; 0.001).</li><li>Continual learning is the largest single gain: an online random forest reaches 11.58 against 17.12 for the same model trained once.</li><li>Probabilistic forecasts via quantile regression averaging with adaptive conformal correction; the intervals hit their nominal coverage within about one percentage point.</li><li>Battery backtest (50 MW / 100 MWh, 85 % round trip, daily LP on the forecast, settled at actual prices): 93.1 % of the perfect-foresight revenue in 2025 and 93.7 % in 2026, against 90 % for LEAR and 75 % for using yesterday&#x27;s prices.</li><li>Runs live: every morning before gate closure a GitHub Actions job publishes the next day&#x27;s forecast. The live system uses a six-member selection, which has a lower MAE than the full ensemble (8.56 vs 8.73 EUR/MWh) but captures slightly less battery revenue (92–94 % vs 93–94 %).</li></ul>
+      </div>
+      <div class="gallery"><figure><img src="../images/projects/dayahead.png" alt="Probabilistic forecast with 50, 80 and 90 % intervals, January 2025." loading="lazy"><figcaption>Probabilistic forecast with 50, 80 and 90 % intervals, January 2025.</figcaption></figure></div>
+    </div>
+  </article>
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2026 Tim-Louis Wilken</p>
+    <div class="footer-links">
+      <a href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="../cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

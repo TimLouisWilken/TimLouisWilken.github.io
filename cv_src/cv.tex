@@ -1,0 +1,139 @@
+%==============================================================================
+%  Tim-Louis Wilken --- Curriculum Vitae (website version), one page
+%  Engine: tectonic / XeLaTeX  (compile: tectonic cv.tex)
+%  Derived from the CDTM CV; tailored to BESS optimisation & energy trading.
+%==============================================================================
+\documentclass[10.5pt,a4paper]{article}
+
+\usepackage{fontspec}                 % XeLaTeX/tectonic: load system Times New Roman
+\setmainfont{Times New Roman}[
+  BoldFont       = {Times New Roman Bold},
+  ItalicFont     = {Times New Roman Italic},
+  BoldItalicFont = {Times New Roman Bold Italic}
+]
+\usepackage[a4paper,top=1.0cm,bottom=0.8cm,left=1.8cm,right=1.8cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+%--- colours -------------------------------------------------------------------
+\definecolor{accent}{HTML}{1F3A5F}   % deep navy
+\definecolor{rule}{HTML}{1F3A5F}
+\definecolor{grey}{HTML}{555555}
+
+%--- section headings ----------------------------------------------------------
+\titleformat{\section}
+  {\color{accent}\bfseries\large}
+  {}{0em}{\MakeUppercase}[\vspace{1pt}{\color{rule}\titlerule[1.1pt]}\vspace{-2pt}]
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+
+%--- helpers -------------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% one CV entry header:  ORG (left, bold) ......... LOCATION (right)
+%                       Role (left, italic) ....... Dates (right, italic)
+\newcommand{\entry}[4]{%
+  \par\vspace{3pt}\nobreak
+  {\textbf{#1}\nobreak\hfill\nobreak{\color{grey}#2}}\par\nobreak\vspace{1pt}
+  {\textit{#3}\nobreak\hfill\nobreak{\itshape\color{grey}#4}}\par\nobreak\vspace{1pt}%
+}
+
+% bullet list
+\newlist{pts}{itemize}{1}
+\setlist[pts]{leftmargin=1.35em,topsep=1pt,itemsep=0.5pt,parsep=0pt,label=\small\color{accent}\textbullet}
+
+%==============================================================================
+\begin{document}
+\pagestyle{empty}
+
+%--- HEADER --------------------------------------------------------------------
+\begin{center}
+  {\color{accent}\large\bfseries TIM-LOUIS WILKEN}\\[5pt]
+  {\small
+    Germany \quad\textbar\quad
+    +49 160 95509912 \quad\textbar\quad
+    \href{mailto:timlouis.wilken@gmail.com}{timlouis.wilken@gmail.com} \quad\textbar\quad
+    \href{https://github.com/TimLouisWilken}{github.com/TimLouisWilken}
+  }
+\end{center}
+\vspace{2pt}
+
+%==============================================================================
+\section{Education}
+
+\entry{UNIVERSITY COLLEGE LONDON (UCL) / UNIVERSITY OF OXFORD}{London / Oxford, United Kingdom}
+      {M.Sc.\ Energy Systems and Data Analytics (UCL); thesis as visiting student (Oxford)}{Sep 2025 -- Sep 2026}
+\begin{pts}
+  \item \textbf{Average 76.8/100} across all taught modules (Distinction $\geq$ 70; dissertation pending). Top marks: Statistics for Energy Analytics \textbf{89}, Energy and Transport Analytics \textbf{85}, Econometrics of Energy Markets \textbf{82}.
+  \item Thesis, written at Oxford (June--September 2026, fee waiver for the visiting studentship), supervised by A.\ Stratigakos (UCL), T.\ Morstyn and Y.\ Zhou (Oxford): \textit{Deadline Commitments for GPU Jobs under a Forecast-Uncertain Non-Firm Grid Connection}. Two-stage stochastic MILP with ECMWF weather ensembles and chance constraints; meets 6--21\,pp more deadlines than a greedy scheduler.
+\end{pts}
+
+\entry{TECHNICAL UNIVERSITY OF MUNICH (TUM)}{Munich, Germany}
+      {B.Sc.\ Management and Technology}{Oct 2021 -- Mar 2025}
+\begin{pts}
+  \item Final grade 2.2 (German scale, 1.0 = best); electrical engineering, business analytics and finance; exchange semester at Singapore Management University (2023).
+  \item Thesis (grade 1.3), \textit{Rising connection requests for BESS in Germany}: analysed 2024 German day-ahead price volatility and battery cost degression behind 340\,GW of BESS grid-connection requests, quantifying arbitrage revenues.
+\end{pts}
+
+\entry{SIMON-MARIUS-GYMNASIUM}{Gunzenhausen, Germany}
+      {Abitur; DPG-Abiturpreis (German Physical Society) for outstanding achievement in physics}{2012 -- 2020}
+
+%==============================================================================
+\section{Technical Projects}
+\begin{pts}
+  \item \textbf{GB Day-Ahead Price Forecasting}: online ensemble of 13 models (LSTM, Transformer, gradient boosting, random forests, LEAR and others), retrained daily and combined via Bernstein Online Aggregation; 21\,\% lower MAE than the LEAR benchmark over 2024--2026 (Diebold--Mariano \mbox{$p < 0.001$}) and better than every single member; calibrated probabilistic forecasts; in a day-ahead battery backtest (50\,MW / 100\,MWh) it captures 93--94\,\% of the perfect-foresight arbitrage revenue, vs.\ 90\,\% for LEAR and 75\,\% for persistence; strict leakage audit (pre-auction data only). \textit{(Python, PyTorch, scikit-learn;} \href{https://timlouiswilken.github.io/gb-dayahead-forecast/}{timlouiswilken.github.io/gb-dayahead-forecast}\textit{)}
+  \item \textbf{BESS Trading Simulator}: web app for GB battery trading across day-ahead, intraday and imbalance markets on live Elexon BMRS data, with balancing-mechanism acceptances and a P\&L dashboard. \textit{(React, TypeScript; built with a fellow student, 2026;} \href{https://bess-trading-simulator.com}{bess-trading-simulator.com}\textit{)}
+  \item \textbf{Australian Electricity-Market Dynamics}: threshold vector error-correction (TVECM) analysis of how battery storage shapes SA--VIC wholesale price spillovers. \textit{(Python, statsmodels;}\newline\href{https://github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}{github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}\textit{)}
+\end{pts}
+
+%==============================================================================
+\section{Professional Experience}
+
+\entry{JOH.\ BERENBERG, GOSSLER \& CO.\ KG}{Munich, Germany}
+      {Origination and Growth Intern (full-time)}{May 2025 -- Aug 2025}
+\begin{pts}
+  \item Built data-driven lead-generation workflows across 5 client segments, scaling to $\sim$100 qualified leads per week.
+\end{pts}
+
+\entry{MOONROC ADVISORY PARTNERS GMBH}{Munich, Germany}
+      {Strategy Consulting Intern (full-time)}{Feb 2024 -- May 2024}
+\begin{pts}
+  \item Quantified interview data for strategy workshops; co-authored \textit{Retail Banking Compass 2024} (fintech chapter).
+\end{pts}
+
+\entry{KPMG AG (AUDITING \& ADVISORY)}{Munich, Germany}
+      {Research Assistant, Audit (full-time)}{May 2023 -- Aug 2023}
+\begin{pts}
+  \item Developed a client toolkit for sustainability reporting with TUM's Chair of Financial Accounting.
+\end{pts}
+
+\entry{WEBSHAPE WEBDESIGN}{Munich, Germany}
+      {Co-Founder \& Managing Director (self-employed)}{Mar 2020 -- Oct 2022}
+\begin{pts}
+  \item Co-founded a profitable web-design agency with high five-figure revenue, delivering 35+ client projects.
+\end{pts}
+
+%==============================================================================
+\section{Awards \& Leadership}
+\begin{pts}
+  \item \textbf{Rolls-Royce University Project} (2025--26): reactor systems design (HTGR); team awarded first place.
+  \item \textbf{Cambridge Climate Challenge} (2026): team lead of a three-person interdisciplinary team; finalist.
+  \item \textbf{UCL Energy Society} (2025--26): External Speaker Officer, sourcing industry experts for panels and keynotes.
+\end{pts}
+
+%==============================================================================
+\section{Skills}
+
+\begin{tabularx}{\textwidth}{@{}>{\bfseries\color{accent}}l X@{}}
+  Energy markets & Day-ahead, intraday and imbalance markets (GB, DE); BESS arbitrage; Elexon and ECMWF data.\\[2pt]
+  Methods & Probabilistic forecasting; stochastic \& mixed-integer optimisation; time-series econometrics; ML.\\[2pt]
+  Tools & Python (pandas, PyTorch, scikit-learn, statsmodels, PuLP); HiGHS, Gurobi; SQL, R, Git, TypeScript.\\[2pt]
+  Languages & German (native), English (C1).\\
+\end{tabularx}
+
+\end{document}
