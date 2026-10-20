@@ -155,7 +155,7 @@ PROJECTS = [
         "position": "center 75%",
         "alt": "Winning team at the USI Novel Nuclear Fission Project Finals with Rolls-Royce",
         "card": "Systems Design Engineer in a UCL team that modelled an HTGR cogeneration plant with hydrogen "
-                "production and thermal storage, dispatched hourly against the UK grid. Our team won the Novel "
+                "production and thermal storage; I built the system integration and the economic dispatch model against the UK grid. Our team won the Novel "
                 "Nuclear Fission Project Finals, run by Rolls-Royce and The University Sustainability Initiative.",
         "summary": "Winning team of the Novel Nuclear Fission Project Finals, hosted by The University "
                    "Sustainability Initiative with Rolls-Royce at Imperial College London.",
@@ -173,7 +173,11 @@ PROJECTS = [
             "with a cogeneration secondary system: a recuperated helium Brayton cycle, solid-oxide electrolysis "
             "for hydrogen, and thermal energy storage. The plant is dispatched every half hour against real "
             "NESO demand, wind, solar and grid carbon-intensity data, switching between grid export and "
-            "hydrogen production depending on the system's scarcity. I was the team's Systems Design Engineer.",
+            "hydrogen production depending on the system's scarcity.",
+            "My part as Systems Design Engineer was the system integration and the economic model: how the plant "
+            "is dispatched against a grid driven by wind and solar, with the net load from NESO data as the scarcity "
+            "signal, a scarcity price built on it, and the strike-price rule that decides each half hour between "
+            "exporting electricity and producing hydrogen; plus the revenue model over seven years of data.",
         ],
         "highlights": [
             "First place at the finals at Imperial College London, against teams from Oxford, Imperial, UCL and "
