@@ -20,7 +20,7 @@ PROJECTS = [
         "alt": "Live GB day-ahead forecast page with hourly prices and uncertainty band",
         "card": "Online ensemble of 13 models, retrained daily and combined with Bernstein Online Aggregation. "
                 "21 % lower MAE than the LEAR benchmark over 2024–2026. In a day-ahead battery backtest it "
-                "captures 93–94 % of the perfect-foresight revenue, against 90 % for LEAR.",
+                "captures 93.7 % of the perfect-foresight revenue in 2026 (93.1 % in 2025), against 90.4 % for LEAR.",
         "summary": "A continually retrained forecaster for the 24 hourly prices of the GB day-ahead auction, "
                    "evaluated the way a trading desk would use it.",
         "tags": ["Forecasting", "Online Learning", "BESS", "PyTorch"],
@@ -48,7 +48,7 @@ PROJECTS = [
             "and 75 % for using yesterday's prices.",
             "Runs live: every morning before gate closure a GitHub Actions job publishes the next day's forecast. "
             "The live system uses a six-member selection, which has a lower MAE than the full ensemble "
-            "(8.56 vs 8.73 EUR/MWh) but captures slightly less battery revenue (92–94 % vs 93–94 %).",
+            "(8.56 vs 8.73 EUR/MWh) but captures slightly less battery revenue (93.6 % vs 93.7 % in 2026).",
         ],
     },
     {
