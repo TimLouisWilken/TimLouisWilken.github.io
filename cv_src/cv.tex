@@ -33,7 +33,7 @@
 
 %--- helpers -------------------------------------------------------------------
 \setlength{\parindent}{0pt}
-\linespread{0.97}
+\linespread{0.96}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 
 % one CV entry header:  ORG (left, bold) ......... LOCATION (right)
@@ -62,7 +62,9 @@
     \mbox{Portfolio: \href{https://timlouiswilken.github.io}{\textbf{timlouiswilken.github.io}}}
   }
 \end{center}
-\vspace{2pt}
+\vspace{1pt}
+{\small Profile: forecasting and optimisation of power markets; Python scripting, SQL, R.}
+\vspace{-2pt}
 
 %==============================================================================
 \section{Education}
@@ -82,15 +84,13 @@
 \end{pts}
 
 \entry{SIMON-MARIUS-GYMNASIUM}{Gunzenhausen, Germany}
-      {Abitur; DPG-Abiturpreis (German Physical Society) for outstanding achievement in physics}{2012 -- 2020}
+      {Abitur; DPG-Abiturpreis for outstanding achievement in physics}{2012 -- 2020}
 
 %==============================================================================
 \section{Technical Projects}
-\nobreak\vspace{1pt}
-{\small\color{grey}All projects with code, figures and live demos: \href{https://timlouiswilken.github.io}{timlouiswilken.github.io} \textbar\ \href{https://github.com/TimLouisWilken}{github.com/TimLouisWilken}}
 \begin{pts}
-  \item \textbf{GB Day-Ahead Price Forecasting}: online ensemble of 13 models (LSTM, Transformer, gradient boosting, LEAR and others), retrained daily and combined via Bernstein Online Aggregation; 21\,\% lower MAE than the LEAR benchmark over 2024--2026 (Diebold--Mariano \mbox{$p < 0.001$}); calibrated probabilistic forecasts; in a day-ahead battery backtest \mbox{(50\,MW / 100\,MWh)} it captures 93.7\,\% of the perfect-foresight arbitrage revenue in 2026 (93.1\,\% in 2025), vs.\ 90.4\,\% for LEAR and 76.5\,\% for persistence; strict leakage audit (pre-auction data only). \textit{(Python, PyTorch, scikit-learn;}\newline\textit{live daily at} \href{https://timlouiswilken.github.io/gb-dayahead-forecast/}{timlouiswilken.github.io/gb-dayahead-forecast}\textit{)}
-  \item \textbf{BESS Trading Simulator}: web app for GB battery trading across day-ahead, intraday and imbalance markets on live Elexon BMRS data, with balancing-mechanism acceptances and a P\&L dashboard. \textit{(React, TypeScript; built with a fellow student, 2026;} \href{https://bess-trading-simulator.com}{bess-trading-simulator.com}\textit{)}
+  \item \textbf{GB Day-Ahead Price Forecasting}: online ensemble of 13 models (LSTM, Transformer, gradient boosting, LEAR and others), retrained daily to track changing market conditions and combined via Bernstein Online Aggregation; 21\,\% lower MAE than the LEAR benchmark over 2024--2026 (Diebold--Mariano \mbox{$p < 0.001$}); calibrated probabilistic forecasts; in a day-ahead battery backtest \mbox{(50\,MW / 100\,MWh)} it captures 93.7\,\% of the perfect-foresight arbitrage revenue in 2026 (93.1\,\% in 2025), vs.\ 90.4\,\% for LEAR and 76.5\,\% for persistence; strict leakage audit (pre-auction data only). \textit{(Python, PyTorch, scikit-learn;}\newline\textit{live daily at} \href{https://timlouiswilken.github.io/gb-dayahead-forecast/}{timlouiswilken.github.io/gb-dayahead-forecast}\textit{)}
+  \item \textbf{BESS Trading Simulator}: web app for GB battery trading across day-ahead, intraday and imbalance markets on live Elexon BMRS data, with balancing-mechanism acceptances, a risk book and a P\&L dashboard. \textit{(React, TypeScript; built with a fellow student, 2026;} \href{https://bess-trading-simulator.com}{bess-trading-simulator.com}\textit{)}
   \item \textbf{Australian Electricity-Market Dynamics}: three-regime threshold vector error-correction (TVECM) analysis of how battery storage shapes SA--VIC wholesale price spillovers (52,608 half-hourly observations, 2SLS). \textit{(Python, statsmodels;}\newline\href{https://github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}{github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}\textit{)}
 \end{pts}
 
@@ -138,7 +138,7 @@
 
 \begin{tabularx}{\textwidth}{@{}>{\bfseries\color{accent}}l X@{}}
   Energy markets & Day-ahead, intraday and imbalance markets (GB, DE); BESS arbitrage; Elexon and ECMWF data.\\[2pt]
-  Methods & Probabilistic forecasting; stochastic \& mixed-integer optimisation; time-series econometrics; ML.\\[2pt]
+  Methods & Statistical modelling, forecasting; stochastic \& MILP optimisation; risk management; econometrics; ML.\\[2pt]
   Tools & Python (pandas, PyTorch, scikit-learn, statsmodels, PuLP); HiGHS, Gurobi; SQL, R, Git, TypeScript.\\[2pt]
   Languages & German (native), English (C1).\\
 \end{tabularx}
