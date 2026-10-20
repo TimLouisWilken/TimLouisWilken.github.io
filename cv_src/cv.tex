@@ -63,7 +63,7 @@
   }
 \end{center}
 \vspace{1pt}
-{\small Profile: forecasting and optimisation of power markets; Python scripting, SQL, R.}
+{\small Profile: quantitative forecasting and optimisation for power markets; Python scripting, SQL, R.}
 \vspace{-2pt}
 
 %==============================================================================
@@ -73,15 +73,16 @@
       {M.Sc.\ Energy Systems and Data Analytics (UCL); thesis as visiting student (Oxford)}{Sep 2025 -- Sep 2026}
 \begin{pts}
   \item \textbf{Average 76.8/100} across all taught modules (Distinction $\geq$ 70; dissertation pending). Top marks: Statistics for Energy Analytics \textbf{89}, Energy and Transport Analytics \textbf{85}, Econometrics of Energy Markets \textbf{82}.
-  \item Thesis, written at Oxford (Jun--Sep 2026, fee waiver), supervised by A.\ Stratigakos (UCL), T.\ Morstyn and Y.\ Zhou (Oxford): \textit{Deadline Commitments for GPU Jobs under a Forecast-Uncertain Non-Firm Grid Connection}. Two-stage stochastic MILP with ECMWF ensembles and chance constraints; 6--21\,pp more deadlines than a greedy scheduler.
+  \item Thesis, written at Oxford (Jun--Sep 2026, fee waiver), supervised by A.\ Stratigakos (UCL), T.\ Morstyn and Y.\ Zhou (Oxford): \textit{Deadline Commitments for GPU Jobs under a Forecast-Uncertain Non-Firm Grid Connection}. Two-stage stochastic MILP with ECMWF weather ensembles and chance constraints, hedging firm commitments against volumetric uncertainty; 6--21\,pp more deadlines than a greedy scheduler.
 \end{pts}
 
 \entry{TECHNICAL UNIVERSITY OF MUNICH (TUM)}{Munich, Germany}
       {B.Sc.\ Management and Technology}{Oct 2021 -- Mar 2025}
 \begin{pts}
   \item Final grade 2.2 (German scale, 1.0 = best); electrical engineering, business analytics and finance; exchange semester at Singapore Management University (2023).
-  \item Thesis (grade 1.3), \textit{Rising connection requests for BESS in Germany}: analysed 2024 German day-ahead price volatility and battery cost degression behind 340\,GW of BESS grid-connection requests, quantifying arbitrage revenues.
+  \item Thesis (grade 1.3), \textit{Rising connection requests for BESS in Germany}: analysed the 2024 price volatility, renewable expansion and battery cost degression behind 340\,GW of BESS grid-connection requests, quantifying arbitrage revenues.
 \end{pts}
+
 
 \entry{SIMON-MARIUS-GYMNASIUM}{Gunzenhausen, Germany}
       {Abitur; DPG-Abiturpreis for outstanding achievement in physics}{2012 -- 2020}
@@ -89,7 +90,7 @@
 %==============================================================================
 \section{Technical Projects}
 \begin{pts}
-  \item \textbf{GB Day-Ahead Price Forecasting}: online ensemble of 13 models (LSTM, Transformer, gradient boosting, LEAR and others), retrained daily to track changing market conditions and combined via Bernstein Online Aggregation; 21\,\% lower MAE than the LEAR benchmark over 2024--2026 (Diebold--Mariano \mbox{$p < 0.001$}); calibrated probabilistic forecasts; in a day-ahead battery backtest \mbox{(50\,MW / 100\,MWh)} it captures 93.7\,\% of the perfect-foresight arbitrage revenue in 2026 (93.1\,\% in 2025), vs.\ 90.4\,\% for LEAR and 76.5\,\% for persistence; strict leakage audit (pre-auction data only). \textit{(Python, PyTorch, scikit-learn;}\newline\textit{live daily at} \href{https://timlouiswilken.github.io/gb-dayahead-forecast/}{timlouiswilken.github.io/gb-dayahead-forecast}\textit{)}
+  \item \textbf{GB Day-Ahead Price Forecasting}: online ensemble of 13 models (LSTM, Transformer, gradient boosting, LEAR and others) on demand, wind, solar, gas and carbon inputs, retrained daily to track changing market conditions and combined via Bernstein Online Aggregation; 21\,\% lower MAE than the LEAR benchmark over 2024--2026 (Diebold--Mariano \mbox{$p < 0.001$}); calibrated probabilistic forecasts; in an algorithmic day-ahead battery dispatch backtest \mbox{(50\,MW / 100\,MWh)} it captures 93.7\,\% of the perfect-foresight arbitrage revenue in 2026 (93.1\,\% in 2025), vs.\ 90.4\,\% for LEAR and 76.5\,\% for persistence; strict leakage audit (pre-auction data only). \textit{(Python, PyTorch, scikit-learn;}\newline\textit{live daily at} \href{https://timlouiswilken.github.io/gb-dayahead-forecast/}{timlouiswilken.github.io/gb-dayahead-forecast}\textit{)}
   \item \textbf{BESS Trading Simulator}: web app for GB battery trading across day-ahead, intraday and imbalance markets on live Elexon BMRS data, with balancing-mechanism acceptances, a risk book and a P\&L dashboard. \textit{(React, TypeScript; built with a fellow student, 2026;} \href{https://bess-trading-simulator.com}{bess-trading-simulator.com}\textit{)}
   \item \textbf{Australian Electricity-Market Dynamics}: three-regime threshold vector error-correction (TVECM) analysis of how battery storage shapes SA--VIC wholesale price spillovers (52,608 half-hourly observations, 2SLS). \textit{(Python, statsmodels;}\newline\href{https://github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}{github.com/TimLouisWilken/analysis-of-the-australian-electricity-market}\textit{)}
 \end{pts}
@@ -101,7 +102,6 @@
       {Origination and Growth Intern (full-time)}{May 2025 -- Aug 2025}
 \begin{pts}
   \item Built data-driven lead-generation workflows across 5 client segments, scaling to $\sim$100 qualified leads per week.
-  \item Designed the segmentation and prioritisation logic behind the pipeline, improving lead quality and conversion.
 \end{pts}
 
 \entry{LUX-WERFT UND SCHIFFFAHRT GMBH}{Pleinfeld, Germany}
@@ -138,7 +138,7 @@
 
 \begin{tabularx}{\textwidth}{@{}>{\bfseries\color{accent}}l X@{}}
   Energy markets & Day-ahead, intraday and imbalance markets (GB, DE); BESS arbitrage; Elexon and ECMWF data.\\[2pt]
-  Methods & Statistical modelling, forecasting; stochastic \& MILP optimisation; risk management; econometrics; ML.\\[2pt]
+  Methods & Statistical modelling, forecasting; optimisation under uncertainty; risk management; econometrics.\\[2pt]
   Tools & Python (pandas, PyTorch, scikit-learn, statsmodels, PuLP); HiGHS, Gurobi; SQL, R, Git, TypeScript.\\[2pt]
   Languages & German (native), English (C1).\\
 \end{tabularx}
