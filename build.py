@@ -484,7 +484,7 @@ def page(p, nxt):
   </div>
   <div class="case-grid">
     <dl class="case-meta">
-      <div><dt>Year</dt><dd>{e(p["year"])}</dd></div>
+      <div><dt>{"Year" if p["year"].isdigit() else "Context"}</dt><dd>{e(p["year"])}</dd></div>
       <div><dt>Focus</dt><dd>{"<br>".join(e(t) for t in p["tags"])}</dd></div>
       {meta_links(p)}
       {cta_html}
