@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tim-Louis Wilken | Energy Markets &amp; Forecasting</title>
   <meta name="description" content="Portfolio of Tim-Louis Wilken: forecasting and optimisation for power markets and battery storage.">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://timlouiswilken.github.io/">
   <meta property="og:title" content="Tim-Louis Wilken | Energy Markets &amp; Forecasting">
   <meta property="og:description" content="Forecasting and optimisation for power markets and battery storage.">
@@ -12,9 +13,6 @@
   <meta property="og:url" content="https://timlouiswilken.github.io/">
   <meta property="og:image" content="https://timlouiswilken.github.io/images/projects/dayahead.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,9 +21,10 @@
   <div class="container nav-inner">
     <a href="#home" class="brand">Tim-Louis Wilken</a>
     <div class="nav-links">
-      <a href="#projects">Projects</a>
+      <a href="#projects">Work</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
       <a class="icon-link" href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer" aria-label="GitHub">
@@ -41,47 +40,40 @@
 
 <main class="container">
 
-  <section id="home" class="section" style="padding-bottom: 2rem;">
-    <div class="card hero reveal">
-      <div class="hero-grid">
-        <div>
-          <p class="eyebrow">Power Markets • Forecasting • Optimisation</p>
-          <h1>Tim-Louis Wilken</h1>
-          <p class="role">M.Sc. Energy Systems and Data Analytics, UCL · Thesis at the University of Oxford</p>
-          <p class="lead">I build forecasting and optimisation models for power markets and battery storage, and I test them the way a trading desk would: out of sample, with only the information available before the auction.</p>
-          <div class="meta">
-            <span>Germany</span>
-            <a href="mailto:timlouis.wilken@gmail.com">timlouis.wilken@gmail.com</a>
-            <a href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-          <div class="tags">
-            <span class="tag tag-lg">Day-Ahead &amp; Intraday Markets</span>
-            <span class="tag tag-lg">Battery Storage</span>
-            <span class="tag tag-lg">Probabilistic Forecasting</span>
-            <span class="tag tag-lg">Stochastic Optimisation</span>
-            <span class="tag tag-lg">Python</span>
-          </div>
-          <div class="actions">
-            <a class="btn btn-primary" href="#projects">Explore Projects</a>
-            <a class="btn" href="cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
-          </div>
-        </div>
-        <div class="portrait">
-          <img src="images/profile.jpg" alt="Portrait of Tim-Louis Wilken">
+  <section id="home" class="hero">
+    <div class="hero-grid">
+      <div class="hero-title reveal">
+        <p class="kicker">Power Markets · Forecasting · Optimisation</p>
+        <h1>Tim-Louis<br>Wilken<span class="dot">.</span></h1>
+      </div>
+      <div class="portrait reveal">
+        <img src="images/profile.jpg" alt="Portrait of Tim-Louis Wilken">
+      </div>
+      <div class="hero-copy reveal">
+        <p class="statement">I build forecasting and optimisation models for power markets and battery storage. <span class="muted">And I test them the way a trading desk would: out of sample, with only the information available before the auction.</span></p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">View the work</a>
+          <a class="btn btn-ghost" href="cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
         </div>
       </div>
+      <dl class="facts reveal">
+        <div><dt>Currently</dt><dd>M.Sc. Energy Systems and Data Analytics, UCL · Thesis at the University of Oxford</dd></div>
+        <div><dt>Focus</dt><dd>Day-ahead &amp; intraday markets, battery storage, probabilistic forecasting, stochastic optimisation</dd></div>
+        <div><dt>Based in</dt><dd>Germany</dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:timlouis.wilken@gmail.com">timlouis.wilken@gmail.com</a></dd></div>
+      </dl>
     </div>
   </section>
 
-  <section id="live" class="section" style="padding-top: 0; padding-bottom: 1rem;">
-    <div class="card live reveal" id="live-card" hidden>
+  <section id="live" aria-label="Live forecast">
+    <div class="live reveal" id="live-card" hidden>
       <div class="live-head">
         <div>
-          <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Live · GB day-ahead forecast for <span id="live-date">…</span></p>
-          <p class="live-sub">Published every morning before gate closure by my online ensemble. Point forecast with the 90 % interval, EUR/MWh, UK local time.</p>
+          <p class="kicker"><span class="live-dot" aria-hidden="true"></span>Live · Updated every morning</p>
+          <h2 class="live-title">GB day-ahead forecast<br>for <span id="live-date">…</span></h2>
+          <p class="live-sub">Published before gate closure by my online ensemble. Point forecast with the 90 % interval, EUR/MWh, UK local time.</p>
         </div>
-        <a class="btn btn-sm" href="https://timlouiswilken.github.io/gb-dayahead-forecast/" target="_blank" rel="noreferrer">Open live page →</a>
+        <a class="btn" href="https://timlouiswilken.github.io/gb-dayahead-forecast/" target="_blank" rel="noreferrer">Open live page ›</a>
       </div>
       <div class="live-grid">
         <div class="live-stats">
@@ -90,105 +82,118 @@
           <div class="stat"><span class="stat-label">Low</span><span class="stat-value" id="live-low">–</span><span class="stat-note" id="live-low-at"></span></div>
           <div class="stat"><span class="stat-label">Realised MAE, last 7 days</span><span class="stat-value" id="live-mae">–</span><span class="stat-note" id="live-mae-note"></span></div>
         </div>
-        <svg class="live-chart" id="live-chart" viewBox="0 0 600 180" preserveAspectRatio="none" role="img" aria-label="Hourly day-ahead price forecast with 90 % interval"></svg>
+        <svg class="live-chart" id="live-chart" viewBox="0 0 600 220" preserveAspectRatio="none" role="img" aria-label="Hourly day-ahead price forecast with 90 % interval"></svg>
       </div>
     </div>
   </section>
 
   <section id="projects" class="section">
     <header class="section-head reveal">
-      <h2>Projects</h2>
+      <div>
+        <p class="kicker">Selected work</p>
+        <h2>Projects<span style="color: var(--accent);">.</span></h2>
+      </div>
       <p>Forecasting, optimisation and market analysis for electricity markets and battery storage.</p>
     </header>
     <div class="grid">
 <!-- PROJECTS:START -->
-      <article class="card project reveal" data-href="projects/gb-dayahead-forecast.html">
+      <article class="project feature reveal" data-href="projects/gb-dayahead-forecast.html">
         <div class="cover "><img class="fill" style="object-position: center top;" src="images/projects/dayahead-live.jpg" alt="Live GB day-ahead forecast page with hourly prices and uncertainty band" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">01</span>
           <h3><a href="projects/gb-dayahead-forecast.html">GB Day-Ahead Price Forecasting</a></h3>
-          <p class="desc">Online ensemble of 13 models, retrained daily and combined with Bernstein Online Aggregation. 21 % lower MAE than the LEAR benchmark over 2024–2026. In a day-ahead battery backtest it captures 93.7 % of the perfect-foresight revenue in 2026 (93.1 % in 2025), against 90.4 % for LEAR.</p>
-          <div class="tags"><span class="tag">Forecasting</span><span class="tag">Online Learning</span><span class="tag">BESS</span><span class="tag">PyTorch</span></div>
+          <p class="desc">Online ensemble of 13 models, retrained daily and combined with Bernstein Online Aggregation. 21&nbsp;% lower MAE than the LEAR benchmark over 2024–2026. In a day-ahead battery backtest it captures 93.7&nbsp;% of the perfect-foresight revenue in 2026 (93.1&nbsp;% in 2025), against 90.4&nbsp;% for LEAR.</p>
+          <p class="dotlist">Forecasting · Online Learning · BESS · PyTorch</p>
           <div class="links"><a href="projects/gb-dayahead-forecast.html">Details</a><a href="https://timlouiswilken.github.io/gb-dayahead-forecast/" target="_blank" rel="noreferrer">Live Forecast</a><a href="https://github.com/TimLouisWilken/gb-dayahead-research" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/bess-trading-simulator.html">
+      <article class="project reveal" data-href="projects/bess-trading-simulator.html">
         <div class="cover "><img class="fill" style="object-position: left top;" src="images/projects/bess-simulator-desk.jpg" alt="Day-ahead auction screen of the BESS Trading Simulator with hourly price forecast" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">02</span>
           <h3><a href="projects/bess-trading-simulator.html">BESS Trading Simulator</a></h3>
           <p class="desc">Interactive web app for learning GB battery trading across the day-ahead, intraday and imbalance markets on live Elexon BMRS data, with balancing-mechanism acceptances and a P&amp;L dashboard. Built with a fellow student.</p>
-          <div class="tags"><span class="tag">Market Design</span><span class="tag">Trading</span><span class="tag">React</span><span class="tag">TypeScript</span></div>
+          <p class="dotlist">Market Design · Trading · React · TypeScript</p>
           <div class="links"><a href="projects/bess-trading-simulator.html">Details</a><a href="https://bess-trading-simulator.com" target="_blank" rel="noreferrer">Live Demo</a><a href="https://github.com/bess-trading-simulator/bess-trading-simulator" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/german-spread-analysis.html">
+      <article class="project reveal" data-href="projects/german-spread-analysis.html">
         <div class="cover "><img src="images/projects/spread.png" alt="German day-ahead high-low spread versus price level, 2018 to 2026" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">03</span>
           <h3><a href="projects/german-spread-analysis.html">German Day-Ahead Spread Analysis</a></h3>
           <p class="desc">Extends FlexPower&#x27;s analysis &quot;Die große Abkopplung&quot; to October 2026. Since 2024 the daily high-low spread has decoupled from the price level in spring and summer, while winter is unchanged. The annual mean spread rose from 111 to 159 EUR/MWh.</p>
-          <div class="tags"><span class="tag">Market Analysis</span><span class="tag">Germany</span><span class="tag">BESS Spreads</span><span class="tag">Python</span></div>
+          <p class="dotlist">Market Analysis · Germany · BESS Spreads · Python</p>
           <div class="links"><a href="projects/german-spread-analysis.html">Details</a><a href="https://github.com/TimLouisWilken/de-price-decoupling" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/masters-thesis.html">
+      <article class="project reveal" data-href="projects/masters-thesis.html">
         <div class="cover "><img src="images/projects/thesis.png" alt="ECMWF ensemble of the curtailable grid import limit over one week" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">04</span>
           <h3><a href="projects/masters-thesis.html">Master&#x27;s Thesis: GPU Jobs on a Non-Firm Grid Connection</a></h3>
           <p class="desc">Which jobs can an AI data centre firmly commit to when the grid may curtail its supply? A two-stage stochastic MILP with real ECMWF weather ensembles and a joint chance constraint. It meets 6–21 percentage points more deadlines than a greedy scheduler.</p>
-          <div class="tags"><span class="tag">Stochastic MILP</span><span class="tag">Chance Constraints</span><span class="tag">Data Centres</span><span class="tag">HiGHS / Gurobi</span></div>
+          <p class="dotlist">Stochastic MILP · Chance Constraints · Data Centres · HiGHS / Gurobi</p>
           <div class="links"><a href="projects/masters-thesis.html">Details</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/rolls-royce-fission-project.html">
+      <article class="project reveal" data-href="projects/rolls-royce-fission-project.html">
         <div class="cover "><img class="fill" style="object-position: center 75%;" src="images/projects/rolls-royce.jpg" alt="Winning team at the USI Novel Nuclear Fission Project Finals with Rolls-Royce" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">05</span>
           <h3><a href="projects/rolls-royce-fission-project.html">Rolls-Royce: High-Temperature Gas Reactor Design</a></h3>
           <p class="desc">Systems Design Engineer in a UCL team that modelled an HTGR cogeneration plant with hydrogen production and thermal storage; I built the system integration and the economic dispatch model against the UK grid. Our team won the Novel Nuclear Fission Project Finals, run by Rolls-Royce and The University Sustainability Initiative.</p>
-          <div class="tags"><span class="tag">Systems Engineering</span><span class="tag">Nuclear</span><span class="tag">Hydrogen</span><span class="tag">Dispatch Modelling</span><span class="tag">Winning Team</span></div>
+          <p class="dotlist">Systems Engineering · Nuclear · Hydrogen · Dispatch Modelling · Winning Team</p>
           <div class="links"><a href="projects/rolls-royce-fission-project.html">Details</a><a href="https://www.linkedin.com/posts/the-usi-recently-hosted-its-novel-nuclear-ugcPost-7441210424911499264-hZZq/" target="_blank" rel="noreferrer">LinkedIn Post</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/bachelors-thesis.html">
+      <article class="project reveal" data-href="projects/bachelors-thesis.html">
         <div class="cover "><img src="images/projects/bachelor-spread.png" alt="Daily average price and daily spread in the German day-ahead market, 2020 to 2025" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">06</span>
           <h3><a href="projects/bachelors-thesis.html">Bachelor&#x27;s Thesis: BESS Connection Requests in Germany</a></h3>
           <p class="desc">What drives 340 GW of battery grid-connection requests? Analysis of 2024 day-ahead price volatility and battery cost degression, quantifying arbitrage revenues and grid implications. Graded 1.3 at TUM.</p>
-          <div class="tags"><span class="tag">BESS</span><span class="tag">Grid Connections</span><span class="tag">Arbitrage</span></div>
+          <p class="dotlist">BESS · Grid Connections · Arbitrage</p>
           <div class="links"><a href="projects/bachelors-thesis.html">Details</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/australian-electricity-market.html">
+      <article class="project reveal" data-href="projects/australian-electricity-market.html">
         <div class="cover "><img src="images/projects/australia-intraday.png" alt="Average intraday battery dispatch and South Australian price" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">07</span>
           <h3><a href="projects/australian-electricity-market.html">Australian Electricity-Market Dynamics</a></h3>
           <p class="desc">Does a growing battery fleet dampen wholesale prices? A three-regime threshold vector error-correction model of South Australian and Victorian prices, 2023–2025.</p>
-          <div class="tags"><span class="tag">Econometrics</span><span class="tag">Time Series</span><span class="tag">statsmodels</span></div>
+          <p class="dotlist">Econometrics · Time Series · statsmodels</p>
           <div class="links"><a href="projects/australian-electricity-market.html">Details</a><a href="https://github.com/TimLouisWilken/analysis-of-the-australian-electricity-market" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/uk-onshore-wind-siting.html">
+      <article class="project reveal" data-href="projects/uk-onshore-wind-siting.html">
         <div class="cover "><img src="images/projects/wind-scotland.png" alt="Recommended onshore wind sites in Scotland and Northern Ireland" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">08</span>
           <h3><a href="projects/uk-onshore-wind-siting.html">UK Onshore-Wind Siting</a></h3>
           <p class="desc">GIS multi-criteria (AHP) suitability and financial-viability analysis siting 20 strategic 0.5 GW onshore wind clusters across the UK.</p>
-          <div class="tags"><span class="tag">GIS</span><span class="tag">Wind</span><span class="tag">GeoPandas</span><span class="tag">Project Finance</span></div>
+          <p class="dotlist">GIS · Wind · GeoPandas · Project Finance</p>
           <div class="links"><a href="projects/uk-onshore-wind-siting.html">Details</a><a href="https://github.com/TimLouisWilken/Spatial-Assessment-of-Onshore-Wind-Capacity-in-UK" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/saudi-vision-2030.html">
+      <article class="project reveal" data-href="projects/saudi-vision-2030.html">
         <div class="cover "><img src="images/projects/saudi-3.png" alt="Monte Carlo paths of PV and wind capacity in Saudi Arabia to 2030" loading="lazy"></div>
         <div class="project-body">
-          <h3><a href="projects/saudi-vision-2030.html">Saudi Vision 2030: Can Renewables Reach 50 %?</a></h3>
-          <p class="desc">Econometric demand model and Monte Carlo simulation of grid and capacity expansion. Even in the best case the renewable share reaches only about 28–32 % by 2030, against a target of 50 %.</p>
-          <div class="tags"><span class="tag">Monte Carlo</span><span class="tag">Econometrics</span><span class="tag">Energy Policy</span><span class="tag">Python</span></div>
+          <span class="num">09</span>
+          <h3><a href="projects/saudi-vision-2030.html">Saudi Vision 2030: Can Renewables Reach 50&nbsp;%?</a></h3>
+          <p class="desc">Econometric demand model and Monte Carlo simulation of grid and capacity expansion. Even in the best case the renewable share reaches only about 28–32&nbsp;% by 2030, against a target of 50&nbsp;%.</p>
+          <p class="dotlist">Monte Carlo · Econometrics · Energy Policy · Python</p>
           <div class="links"><a href="projects/saudi-vision-2030.html">Details</a><a href="https://github.com/TimLouisWilken/Evaluation-of-Saudi-Vision-2030" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </article>
-      <article class="card project reveal" data-href="projects/open-roof-measurement.html">
+      <article class="project feature reveal" data-href="projects/open-roof-measurement.html">
         <div class="cover "><img class="fill" style="object-position: center center;" src="images/projects/openroof-s1.jpg" alt="Detected roof outline, ridge and PV panels on an aerial image" loading="lazy"></div>
         <div class="project-body">
+          <span class="num">10</span>
           <h3><a href="projects/open-roof-measurement.html">Open Roof Measurement</a></h3>
           <p class="desc">Roof renovation and insulation are a big lever for the energy transition in buildings, but getting a quote starts with measuring the roof. This pipeline measures it from a street address and open geodata, with a web tool for a human to check the result.</p>
-          <div class="tags"><span class="tag">Computer Vision</span><span class="tag">Buildings</span><span class="tag">Energy Efficiency</span><span class="tag">FastAPI</span><span class="tag">Next.js</span></div>
+          <p class="dotlist">Computer Vision · Buildings · Energy Efficiency · FastAPI · Next.js</p>
           <div class="links"><a href="projects/open-roof-measurement.html">Details</a><a href="https://github.com/TimLouisWilken/open-roof-measure" target="_blank" rel="noreferrer">Code</a></div>
         </div>
       </article>
@@ -196,98 +201,131 @@
     </div>
   </section>
 
-  <section id="experience" class="section">
+  <section id="experience" class="section" style="padding-top: 0;">
     <header class="section-head reveal">
-      <h2>Experience</h2>
+      <div>
+        <p class="kicker">Career</p>
+        <h2>Experience<span style="color: var(--accent);">.</span></h2>
+      </div>
       <p>Commercial, analytical and entrepreneurial work alongside my studies.</p>
     </header>
-    <div class="timeline">
+    <div class="rows">
 
-      <article class="card entry reveal">
-        <header><h3>Joh. Berenberg, Gossler &amp; Co. KG</h3><p class="date">May 2025 — Aug 2025</p></header>
-        <p class="where">Origination and Growth Intern · Munich, Germany</p>
+      <article class="row reveal">
+        <p class="date">May 2025 — Aug 2025</p>
+        <div>
+          <h3>Joh. Berenberg, Gossler &amp; Co. KG</h3>
+          <p class="where">Origination and Growth Intern · Munich, Germany</p>
+          <p class="dotlist">Banking · Origination · Data</p>
+        </div>
         <ul>
           <li>Built lead-generation workflows across 5 target client segments, scaling the pipeline to about 100 qualified leads per week.</li>
           <li>Implemented data-driven acquisition and segmentation logic to improve lead quality and conversion.</li>
         </ul>
-        <div class="tags"><span class="tag">Banking</span><span class="tag">Origination</span><span class="tag">Data</span></div>
       </article>
 
-      <article class="card entry reveal">
-        <header><h3>Lux-Werft und Schifffahrt GmbH</h3><p class="date">Jun 2024 — Aug 2025</p></header>
-        <p class="where">Ship Operator, MS Brombachsee (part-time) · Pleinfeld, Germany</p>
+      <article class="row reveal">
+        <p class="date">Jun 2024 — Aug 2025</p>
+        <div>
+          <h3>Lux-Werft und Schifffahrt GmbH</h3>
+          <p class="where">Ship Operator, MS Brombachsee (part-time) · Pleinfeld, Germany</p>
+          <p class="dotlist">Operations · Passenger Shipping</p>
+        </div>
         <ul>
           <li>Skippered the MS Brombachsee, Europe's largest inland passenger trimaran (46 m, three decks, up to 750 passengers), alongside my studies.</li>
         </ul>
-        <div class="tags"><span class="tag">Operations</span><span class="tag">Passenger Shipping</span></div>
       </article>
 
-      <article class="card entry reveal">
-        <header><h3>MoonRoc Advisory Partners</h3><p class="date">Feb 2024 — May 2024</p></header>
-        <p class="where">Strategy Consulting Intern · Munich, Germany</p>
+      <article class="row reveal">
+        <p class="date">Feb 2024 — May 2024</p>
+        <div>
+          <h3>MoonRoc Advisory Partners</h3>
+          <p class="where">Strategy Consulting Intern · Munich, Germany</p>
+          <p class="dotlist">Strategy · Financial Services</p>
+        </div>
         <ul>
           <li>Quantified interview data and synthesised insights for a financial-services client.</li>
           <li>Co-authored the fintech chapter of <em>Retail Banking Compass 2024</em>, Germany's largest retail-banking study.</li>
         </ul>
-        <div class="tags"><span class="tag">Strategy</span><span class="tag">Financial Services</span></div>
       </article>
 
-      <article class="card entry reveal">
-        <header><h3>KPMG AG</h3><p class="date">May 2023 — Aug 2023</p></header>
-        <p class="where">Research Assistant, Audit · Munich, Germany</p>
+      <article class="row reveal">
+        <p class="date">May 2023 — Aug 2023</p>
+        <div>
+          <h3>KPMG AG</h3>
+          <p class="where">Research Assistant, Audit · Munich, Germany</p>
+          <p class="dotlist">Audit · Sustainability Reporting</p>
+        </div>
         <ul>
           <li>Developed a client toolkit for sustainability reporting with TUM's Chair of Financial Accounting and a KPMG audit partner.</li>
         </ul>
-        <div class="tags"><span class="tag">Audit</span><span class="tag">Sustainability Reporting</span></div>
       </article>
 
-      <article class="card entry reveal">
-        <header><h3>Webshape Webdesign</h3><p class="date">Mar 2020 — Oct 2022</p></header>
-        <p class="where">Co-Founder &amp; Managing Director · Munich, Germany</p>
+      <article class="row reveal">
+        <p class="date">Mar 2020 — Oct 2022</p>
+        <div>
+          <h3>Webshape Webdesign</h3>
+          <p class="where">Co-Founder &amp; Managing Director · Munich, Germany</p>
+          <p class="dotlist">Entrepreneurship · Web Development</p>
+        </div>
         <ul>
           <li>Co-founded a profitable web-design agency with my brother and delivered 35+ client projects.</li>
         </ul>
-        <div class="tags"><span class="tag">Entrepreneurship</span><span class="tag">Web Development</span></div>
       </article>
 
-      <article class="card entry reveal">
-        <header><h3>Awards, Leadership &amp; Side Projects</h3><p class="date">2020 — 2026</p></header>
+      <article class="row reveal">
+        <p class="date">2020 — 2026</p>
+        <div>
+          <h3>Awards, Leadership &amp; Side Projects</h3>
+        </div>
         <ul>
           <li><strong>Cambridge Climate Challenge:</strong> led a three-person interdisciplinary team to the final.</li>
           <li><strong>UCL Energy Society:</strong> External Speaker Officer, bringing industry experts to panels and keynotes.</li>
-          <li><strong>Navium Marketplace (since 2020):</strong> built and operate <a href="https://mynavium.com" target="_blank" rel="noreferrer" style="color: var(--accent); font-weight: 600;">mynavium.com</a>, an online marketplace for passenger-ship and vessel listings.</li>
+          <li><strong>Navium Marketplace (since 2020):</strong> built and operate <a href="https://mynavium.com" target="_blank" rel="noreferrer">mynavium.com</a>, an online marketplace for passenger-ship and vessel listings.</li>
         </ul>
       </article>
 
     </div>
   </section>
 
-  <section id="education" class="section">
+  <section id="education" class="section" style="padding-top: 0;">
     <header class="section-head reveal">
-      <h2>Education</h2>
+      <div>
+        <p class="kicker">Studies</p>
+        <h2>Education<span style="color: var(--accent);">.</span></h2>
+      </div>
       <p>Energy systems, data analytics and the economics of power markets.</p>
     </header>
-    <div class="timeline">
+    <div class="rows">
 
-      <article class="card entry reveal">
-        <header><h3>M.Sc. Energy Systems and Data Analytics</h3><p class="date">Sep 2025 — Sep 2026</p></header>
-        <p class="where">University College London (UCL) · London, United Kingdom</p>
+      <article class="row reveal">
+        <p class="date">Sep 2025 — Sep 2026</p>
+        <div>
+          <h3>M.Sc. Energy Systems and Data Analytics</h3>
+          <p class="where">University College London (UCL) · London, United Kingdom</p>
+        </div>
         <ul>
           <li>Machine learning, statistics and econometrics applied to energy systems and markets. Average 76.8/100 across the taught modules (Distinction ≥ 70; dissertation result pending).</li>
         </ul>
       </article>
 
-      <article class="card entry reveal">
-        <header><h3>Graduate Student Visitor, Master's Thesis</h3><p class="date">Jun 2026 — Sep 2026</p></header>
-        <p class="where">University of Oxford, Department of Engineering Science · Oxford, United Kingdom</p>
+      <article class="row reveal">
+        <p class="date">Jun 2026 — Sep 2026</p>
+        <div>
+          <h3>Graduate Student Visitor, Master's Thesis</h3>
+          <p class="where">University of Oxford, Department of Engineering Science · Oxford, United Kingdom</p>
+        </div>
         <ul>
           <li>Thesis supervised by Prof. Thomas Morstyn and Yihong Zhou (Oxford) and Akylas Stratigakos (UCL); fee waiver for the visiting studentship.</li>
         </ul>
       </article>
 
-      <article class="card entry reveal">
-        <header><h3>B.Sc. Management and Technology</h3><p class="date">Oct 2021 — Mar 2025</p></header>
-        <p class="where">Technical University of Munich (TUM) · Munich, Germany</p>
+      <article class="row reveal">
+        <p class="date">Oct 2021 — Mar 2025</p>
+        <div>
+          <h3>B.Sc. Management and Technology</h3>
+          <p class="where">Technical University of Munich (TUM) · Munich, Germany</p>
+        </div>
         <ul>
           <li>Electrical engineering, business analytics and finance. Exchange semester at Singapore Management University (2023).</li>
           <li>Thesis on BESS grid-connection requests in Germany, graded 1.3.</li>
@@ -299,8 +337,16 @@
 
 </main>
 
-<footer class="footer">
-  <div class="container footer-inner">
+<footer id="contact" class="container contact">
+  <p class="kicker">Contact</p>
+  <h2 class="reveal">Let’s talk<span style="color: var(--accent);">.</span></h2>
+  <a class="mail" href="mailto:timlouis.wilken@gmail.com">timlouis.wilken@gmail.com</a>
+  <div class="actions">
+    <a class="btn btn-primary" href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer">LinkedIn</a>
+    <a class="btn" href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer">GitHub</a>
+    <a class="btn btn-ghost" href="cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
+  </div>
+  <div class="footer-inner">
     <p>© 2026 Tim-Louis Wilken</p>
     <div class="footer-links">
       <a href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer">GitHub</a>
@@ -331,17 +377,20 @@
       document.getElementById('live-low').textContent = fmt(f[iMin]);
       document.getElementById('live-low-at').textContent = 'at ' + String(d.hours[iMin]).padStart(2, '0') + ':00';
       // chart
-      const W = 600, H = 180, px = 8, pt = 10, pb = 22;
+      const W = 600, H = 220, px = 8, pt = 22, pb = 26;
       const lo = Math.min(...q05), hi = Math.max(...q95), span = (hi - lo) || 1;
       const x = (i) => px + i * (W - 2 * px) / (n - 1);
       const y = (v) => pt + (hi - v) * (H - pt - pb) / span;
       const path = (arr) => arr.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1)).join(' ');
       const band = path(q95) + ' ' + q05.map((v, i) => 'L' + x(n - 1 - i).toFixed(1) + ' ' + y(q05[n - 1 - i]).toFixed(1)).join(' ') + ' Z';
-      const ticks = [0, 6, 12, 18, 23].map((h) => `<text x="${x(h).toFixed(1)}" y="${H - 6}" font-size="10" fill="#4f5564" text-anchor="${h === 0 ? 'start' : h === 23 ? 'end' : 'middle'}" font-family="IBM Plex Mono, monospace">${String(h).padStart(2, '0')}:00</text>`).join('');
-      const labels = [[iMax, f[iMax], -6], [iMin, f[iMin], 14]].map(([i, v, dy]) => `<text x="${x(i).toFixed(1)}" y="${(y(v) + dy).toFixed(1)}" font-size="11" fill="#0b0d12" text-anchor="middle" font-family="IBM Plex Mono, monospace">${fmt(v)}</text>`).join('');
+      const font = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+      const ticks = [0, 6, 12, 18, 23].map((h) => `<text x="${x(h).toFixed(1)}" y="${H - 4}" font-size="11" fill="#86868b" text-anchor="${h === 0 ? 'start' : h === 23 ? 'end' : 'middle'}" font-family='${font}'>${String(h).padStart(2, '0')}:00</text>`).join('');
+      const grid = [0.25, 0.5, 0.75].map((t) => `<line x1="0" x2="${W}" y1="${(pt + t * (H - pt - pb)).toFixed(1)}" y2="${(pt + t * (H - pt - pb)).toFixed(1)}" stroke="#2c2c2e" stroke-width="1" vector-effect="non-scaling-stroke"/>`).join('');
+      const labels = [[iMax, f[iMax], -10], [iMin, f[iMin], 20]].map(([i, v, dy]) => `<text x="${x(i).toFixed(1)}" y="${(y(v) + dy).toFixed(1)}" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle" font-family='${font}'>${fmt(v)}</text>`).join('');
       document.getElementById('live-chart').innerHTML =
-        `<path d="${band}" fill="#1d2942" opacity="0.12"/><path d="${path(f)}" fill="none" stroke="#1d2942" stroke-width="2.2" stroke-linejoin="round"/>` +
-        `<circle cx="${x(iMax).toFixed(1)}" cy="${y(f[iMax]).toFixed(1)}" r="3" fill="#1d2942"/>` + ticks + labels;
+        `<defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#64d2ff"/><stop offset="1" stop-color="#30d158"/></linearGradient></defs>` + grid +
+        `<path d="${band}" fill="#ffffff" opacity="0.1"/><path d="${path(f)}" fill="none" stroke="url(#lg)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>` +
+        `<circle cx="${x(iMax).toFixed(1)}" cy="${y(f[iMax]).toFixed(1)}" r="4" fill="#ffffff"/><circle cx="${x(iMin).toFixed(1)}" cy="${y(f[iMin]).toFixed(1)}" r="4" fill="#ffffff"/>` + ticks + labels;
       document.getElementById('live-card').hidden = false;
       // realised accuracy
       try {

@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open Roof Measurement | Tim-Louis Wilken</title>
   <meta name="description" content="Measuring a roof from an address and open geodata, so that owners and roofers can get to a quote without a site visit.">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -16,9 +14,10 @@
   <div class="container nav-inner">
     <a href="../index.html" class="brand">Tim-Louis Wilken</a>
     <div class="nav-links">
-      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#projects">Work</a>
       <a href="../index.html#experience">Experience</a>
       <a href="../index.html#education">Education</a>
+      <a href="../index.html#contact">Contact</a>
     </div>
     <div class="nav-actions">
       <a class="icon-link" href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
@@ -27,33 +26,44 @@
     </div>
   </div>
 </nav>
-<main class="container section">
-  <a class="back" href="../index.html#projects">← Back to Projects</a>
-  <header class="section-head detail-head">
-    <h2>Open Roof Measurement</h2>
-    <p>Measuring a roof from an address and open geodata, so that owners and roofers can get to a quote without a site visit.</p>
+<main class="container case">
+  <a class="back" href="../index.html#projects">‹ All projects</a>
+  <header class="case-head">
+    <p class="kicker">2026 · Case study</p>
+    <h1>Open Roof Measurement</h1>
+    <p class="summary">Measuring a roof from an address and open geodata, so that owners and roofers can get to a quote without a site visit.</p>
   </header>
-  <article class="card detail">
-    <div class="cover detail-cover"><img class="fill" style="object-position: center center;" src="../images/projects/openroof-s1.jpg" alt="Detected roof outline, ridge and PV panels on an aerial image" loading="lazy"><span class="year">2026</span></div>
-    <div class="detail-body">
-      <p class="eyebrow">2026</p>
-      <div style="margin-top: 1rem;"><div class="tags"><span class="tag">Computer Vision</span><span class="tag">Buildings</span><span class="tag">Energy Efficiency</span><span class="tag">FastAPI</span><span class="tag">Next.js</span></div></div>
-      <div class="detail-links"><a href="https://github.com/TimLouisWilken/open-roof-measure" target="_blank" rel="noreferrer">Code</a></div>
+  <div class="case-cover">
+    <div class="cover detail-cover"><img class="fill" style="object-position: center center;" src="../images/projects/openroof-s1.jpg" alt="Detected roof outline, ridge and PV panels on an aerial image" loading="lazy"></div>
+  </div>
+  <div class="case-grid">
+    <dl class="case-meta">
+      <div><dt>Year</dt><dd>2026</dd></div>
+      <div><dt>Focus</dt><dd>Computer Vision<br>Buildings<br>Energy Efficiency<br>FastAPI<br>Next.js</dd></div>
+      <div><dt>Links</dt><dd><a href="https://github.com/TimLouisWilken/open-roof-measure" target="_blank" rel="noreferrer">Code</a></dd></div>
+      
+    </dl>
+    <div>
       <div class="prose">
         <p>Buildings cause a large share of final energy demand, and the roof is where much of a house&#x27;s heat is lost. Insulating it during a renovation is one of the most effective measures, and it is also the moment to add solar. In practice the process often stalls at the first step: to get a quote, someone has to measure the roof, which means a site visit, a drone survey or an estimate from the ground.</p><p>This project asks whether that first step can be automated. From a street address alone, the pipeline estimates the roof geometry using only open public data from North Rhine-Westphalia: 10 cm aerial images, a 0.5 m elevation model and the cadastre. No paid APIs. A web tool lets a person check and correct the result before it goes to a roofer.</p>
         <h2>Highlights</h2>
-        <ul><li>SAM segmentation for the roof mask, RANSAC plane fitting for pitch and area, and RoofMapNet for ridges, eaves and verges.</li><li>SegFormer fine-tuned on the RID2 dataset (3,813 training images) to detect PV panels, dormers, skylights and chimneys.</li><li>Four-tier building detection with fallbacks for shadows, trees and shared walls.</li><li>Validated on three houses against their building plans. On a compact terraced house all roof-edge metrics are within 7 % of the plan.</li></ul><h2>Limitations</h2><ul><li>There is no real training data for German houses. RoofMapNet was pretrained on 9,576 buildings from China, New Zealand, the US and Austria; German pitched gable roofs, terraced and semi-detached houses and half-hipped variants are absent. On the detached test house this shows as a 16 % ridge overestimate and a 15 % verge underestimate, a textbook case of distribution shift.</li><li>On the semi-detached house the segmentation pulls in part of the neighbour&#x27;s roof, so the area is overestimated and the pitch comes out 27 % too high.</li><li>Validation covers only three houses, and the superstructure model was fine-tuned for 14 epochs on a free Colab GPU. The numbers show where the approach works, not that it is production-ready.</li></ul>
+        <ul><li>SAM segmentation for the roof mask, RANSAC plane fitting for pitch and area, and RoofMapNet for ridges, eaves and verges.</li><li>SegFormer fine-tuned on the RID2 dataset (3,813 training images) to detect PV panels, dormers, skylights and chimneys.</li><li>Four-tier building detection with fallbacks for shadows, trees and shared walls.</li><li>Validated on three houses against their building plans. On a compact terraced house all roof-edge metrics are within 7&nbsp;% of the plan.</li></ul><h2>Limitations</h2><ul><li>There is no real training data for German houses. RoofMapNet was pretrained on 9,576 buildings from China, New Zealand, the US and Austria; German pitched gable roofs, terraced and semi-detached houses and half-hipped variants are absent. On the detached test house this shows as a 16&nbsp;% ridge overestimate and a 15&nbsp;% verge underestimate, a textbook case of distribution shift.</li><li>On the semi-detached house the segmentation pulls in part of the neighbour&#x27;s roof, so the area is overestimated and the pitch comes out 27&nbsp;% too high.</li><li>Validation covers only three houses, and the superstructure model was fine-tuned for 14 epochs on a free Colab GPU. The numbers show where the approach works, not that it is production-ready.</li></ul>
       </div>
-      <div class="gallery"><figure><img src="../images/projects/openroof.jpg" alt="Terraced house, the best case: ridge (red), eaves (green) and outline (cyan) within 7 % of the building plan." loading="lazy"><figcaption>Terraced house, the best case: ridge (red), eaves (green) and outline (cyan) within 7 % of the building plan.</figcaption></figure><figure><img src="../images/projects/openroof-s3.jpg" alt="Detached house, the worst case: the wireframe model assumes a half-hipped roof and overestimates the ridge by 16 %." loading="lazy"><figcaption>Detached house, the worst case: the wireframe model assumes a half-hipped roof and overestimates the ridge by 16 %.</figcaption></figure></div>
+      <div class="gallery"><figure><img src="../images/projects/openroof.jpg" alt="Terraced house, the best case: ridge (red), eaves (green) and outline (cyan) within 7&nbsp;% of the building plan." loading="lazy"><figcaption>Terraced house, the best case: ridge (red), eaves (green) and outline (cyan) within 7&nbsp;% of the building plan.</figcaption></figure><figure><img src="../images/projects/openroof-s3.jpg" alt="Detached house, the worst case: the wireframe model assumes a half-hipped roof and overestimates the ridge by 16&nbsp;%." loading="lazy"><figcaption>Detached house, the worst case: the wireframe model assumes a half-hipped roof and overestimates the ridge by 16&nbsp;%.</figcaption></figure></div>
     </div>
-  </article>
+  </div>
+  <a class="next" href="gb-dayahead-forecast.html">
+    <span class="kicker">Next project</span>
+    <span class="title">GB Day-Ahead Price Forecasting</span>
+  </a>
 </main>
-<footer class="footer">
-  <div class="container footer-inner">
+<footer class="container contact" style="padding-top: 0; border-top: 0;">
+  <div class="footer-inner">
     <p>© 2026 Tim-Louis Wilken</p>
     <div class="footer-links">
       <a href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer">GitHub</a>
       <a href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:timlouis.wilken@gmail.com">Email</a>
       <a href="../cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
     </div>
   </div>

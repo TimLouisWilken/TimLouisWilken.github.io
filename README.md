@@ -10,7 +10,7 @@ Plain HTML and CSS, no framework, no build tool beyond one Python script.
 | `index.html` | The home page: hero, live forecast widget, project cards, experience, education. Hero, experience and education are edited here directly. |
 | `build.py` | Single source of truth for the **projects**. It holds a `PROJECTS` list and generates the project cards in `index.html` (between the `PROJECTS:START/END` markers) and one page per project in `projects/`. |
 | `projects/*.html` | Generated project pages. Do not edit by hand; edit `build.py` and rebuild. |
-| `style.css` | All styling. Colours and fonts are CSS variables at the top (`--accent`, `--font-sans`, …). |
+| `style.css` | All styling. One typeface (Helvetica Neue, no web fonts); colours, radii and easing are CSS variables at the top. The first project card, and the last when it would sit alone, spans the full row. |
 | `images/profile.jpg` | Portrait (metadata stripped). |
 | `images/projects/` | Project images. Each card uses one image; project pages can add a gallery. |
 | `cv.pdf` | CV download, built from `cv_src/cv.tex`. |

@@ -366,7 +366,9 @@ ICON_LI = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><pat
            '.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 '
            '23.2 0 22.22 0Z"/></svg>')
 
-e = html.escape
+def e(s):
+    """Escape for HTML and keep "93 %" together on one line."""
+    return html.escape(s).replace(" %", "&nbsp;%")
 
 
 def cover(p, prefix, extra_class="", show_year=False, detail=False):
@@ -407,24 +409,41 @@ def gallery(p):
     return f'<div class="gallery">{figs}</div>'
 
 
-def card(p):
-    return f'''      <article class="card project reveal" data-href="projects/{p["slug"]}.html">
+def dotlist(p):
+    return f'<p class="dotlist">{" · ".join(e(t) for t in p["tags"])}</p>'
+
+
+def card(p, i, n):
+    # first card spans the row; the last one too if it would otherwise sit alone
+    feature = " feature" if i == 0 or (i == n - 1 and (n - 1) % 2 == 1) else ""
+    return f'''      <article class="project{feature} reveal" data-href="projects/{p["slug"]}.html">
         {cover(p, "")}
         <div class="project-body">
+          <span class="num">{i + 1:02d}</span>
           <h3><a href="projects/{p["slug"]}.html">{e(p["title"])}</a></h3>
           <p class="desc">{e(p["card"])}</p>
-          {tags(p)}
+          {dotlist(p)}
           <div class="links"><a href="projects/{p["slug"]}.html">Details</a>{ext_links(p)}</div>
         </div>
       </article>
 '''
 
 
-def page(p):
+def meta_links(p):
+    skip = p.get("cta", (None, None))[1]
+    links = [(n, u) for n, u in p["links"] if u != skip]
+    if not links:
+        return ""
+    items = "".join(f'<a href="{e(u)}" target="_blank" rel="noreferrer">{e(n)}</a>' for n, u in links)
+    return f"<div><dt>Links</dt><dd>{items}</dd></div>"
+
+
+def page(p, nxt):
     body = "".join(f"<p>{e(x)}</p>" for x in p["body"])
     hl = "".join(f"<li>{e(x)}</li>" for x in p["highlights"])
     if p.get("caveats"):
         hl += "</ul><h2>Limitations</h2><ul>" + "".join(f"<li>{e(x)}</li>" for x in p["caveats"])
+    cta_html = f'<div>{cta(p)}</div>' if "cta" in p else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -432,10 +451,8 @@ def page(p):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{e(p["title"])} | Tim-Louis Wilken</title>
   <meta name="description" content="{e(p["summary"])}">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -443,9 +460,10 @@ def page(p):
   <div class="container nav-inner">
     <a href="../index.html" class="brand">Tim-Louis Wilken</a>
     <div class="nav-links">
-      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#projects">Work</a>
       <a href="../index.html#experience">Experience</a>
       <a href="../index.html#education">Education</a>
+      <a href="../index.html#contact">Contact</a>
     </div>
     <div class="nav-actions">
       <a class="icon-link" href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer" aria-label="GitHub">{ICON_GH}</a>
@@ -454,18 +472,24 @@ def page(p):
     </div>
   </div>
 </nav>
-<main class="container section">
-  <a class="back" href="../index.html#projects">← Back to Projects</a>
-  <header class="section-head detail-head">
-    <h2>{e(p["title"])}</h2>
-    <p>{e(p["summary"])}</p>
+<main class="container case">
+  <a class="back" href="../index.html#projects">‹ All projects</a>
+  <header class="case-head">
+    <p class="kicker">{e(p["year"])} · Case study</p>
+    <h1>{e(p["title"])}</h1>
+    <p class="summary">{e(p["summary"])}</p>
   </header>
-  <article class="card detail">
-    {cover(p, "../", "detail-cover", show_year=True, detail=True)}
-    <div class="detail-body">
-      <p class="eyebrow">{e(p["year"])}</p>
-      <div style="margin-top: 1rem;">{tags(p)}</div>
-      <div class="detail-links">{cta(p)}{ext_links(p, skip=p.get("cta", (None, None))[1])}</div>
+  <div class="case-cover">
+    {cover(p, "../", "detail-cover", detail=True)}
+  </div>
+  <div class="case-grid">
+    <dl class="case-meta">
+      <div><dt>Year</dt><dd>{e(p["year"])}</dd></div>
+      <div><dt>Focus</dt><dd>{"<br>".join(e(t) for t in p["tags"])}</dd></div>
+      {meta_links(p)}
+      {cta_html}
+    </dl>
+    <div>
       <div class="prose">
         {body}
         <h2>Highlights</h2>
@@ -473,14 +497,19 @@ def page(p):
       </div>
       {gallery(p)}
     </div>
-  </article>
+  </div>
+  <a class="next" href="{nxt["slug"]}.html">
+    <span class="kicker">Next project</span>
+    <span class="title">{e(nxt["title"])}</span>
+  </a>
 </main>
-<footer class="footer">
-  <div class="container footer-inner">
+<footer class="container contact" style="padding-top: 0; border-top: 0;">
+  <div class="footer-inner">
     <p>© 2026 Tim-Louis Wilken</p>
     <div class="footer-links">
       <a href="https://github.com/TimLouisWilken" target="_blank" rel="noreferrer">GitHub</a>
       <a href="https://linkedin.com/in/tim-louis-wilken" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:timlouis.wilken@gmail.com">Email</a>
       <a href="../cv.pdf" download="CV_Tim-Louis_Wilken.pdf">Download CV</a>
     </div>
   </div>
@@ -493,14 +522,14 @@ def page(p):
 def main():
     idx = ROOT / "index.html"
     s = idx.read_text()
-    cards = "".join(card(p) for p in PROJECTS)
+    cards = "".join(card(p, i, len(PROJECTS)) for i, p in enumerate(PROJECTS))
     s = re.sub(r"<!-- PROJECTS:START -->.*?<!-- PROJECTS:END -->",
                lambda m: "<!-- PROJECTS:START -->\n" + cards + "<!-- PROJECTS:END -->", s, flags=re.S)
     idx.write_text(s)
     out = ROOT / "projects"
     out.mkdir(exist_ok=True)
-    for p in PROJECTS:
-        (out / f'{p["slug"]}.html').write_text(page(p))
+    for i, p in enumerate(PROJECTS):
+        (out / f'{p["slug"]}.html').write_text(page(p, PROJECTS[(i + 1) % len(PROJECTS)]))
     print(f"{len(PROJECTS)} cards and pages written")
 
 
