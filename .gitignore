@@ -2,3 +2,4 @@
 __pycache__/
 cv_src/*.aux
 cv_src/*.log
+cv_src/*.pdf

@@ -22,7 +22,7 @@ PROJECTS = [
                 "21 % lower MAE than the LEAR benchmark over 2024–2026. In a day-ahead battery backtest it "
                 "captures 93.7 % of the perfect-foresight revenue in 2026 (93.1 % in 2025), against 90.4 % for LEAR.",
         "summary": "A continually retrained forecaster for the 24 hourly prices of the GB day-ahead auction, "
-                   "evaluated the way a trading desk would use it.",
+                   "evaluated strictly out of sample on pre-auction information.",
         "tags": ["Forecasting", "Online Learning", "BESS", "PyTorch"],
         "links": [("Live Forecast", "https://timlouiswilken.github.io/gb-dayahead-forecast/"),
                   ("Code", "https://github.com/TimLouisWilken/gb-dayahead-research")],
@@ -288,7 +288,7 @@ PROJECTS = [
         "contain": True,
         "alt": "Monte Carlo paths of PV and wind capacity in Saudi Arabia to 2030",
         "card": "Econometric demand model and Monte Carlo simulation of grid and capacity expansion. Even in the "
-                "best case the renewable share reaches only 31–36 % by 2030, against a target of 50 %.",
+                "best case the renewable share reaches only about 28–32 % by 2030, against a target of 50 %.",
         "summary": "Is Saudi Arabia's target of a 50 % renewable share in electricity by 2030 achievable?",
         "tags": ["Monte Carlo", "Econometrics", "Energy Policy", "Python"],
         "links": [("Code", "https://github.com/TimLouisWilken/Evaluation-of-Saudi-Vision-2030")],
@@ -301,7 +301,7 @@ PROJECTS = [
         ],
         "highlights": [
             "Simulated 2030 demand: median about 567 TWh, 90 % range about 527 to 609 TWh.",
-            "Renewable share in 2030 of only 31.0 to 35.8 %.",
+            "Renewable share in 2030 of only about 28 to 32 %, depending on demand (P95 to P5).",
             "Even with 40 % annual tender growth and wind prioritised, the 50 % target is missed because of "
             "physical lead times and grid bottlenecks.",
         ],

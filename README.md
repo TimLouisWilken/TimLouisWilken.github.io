@@ -48,8 +48,8 @@ python3 build.py
 ## Live forecast widget
 
 The card under the hero fetches `https://timlouiswilken.github.io/gb-dayahead-forecast/data/latest.json`
-(the day-ahead forecast published every morning by the
-[gb-dayahead-research](https://github.com/TimLouisWilken/gb-dayahead-research) pipeline)
+(the day-ahead forecast published every morning by the online forecasting pipeline;
+code and methodology in [gb-dayahead-research](https://github.com/TimLouisWilken/gb-dayahead-research))
 and `history.json` (realised daily errors). It draws the day's hourly point forecast with the 90 % band
 and shows day average, peak, low and the mean realised MAE of the last seven days against the naive forecast.
 If the feed is unavailable the card stays hidden. The code is in the last `<script>` block of `index.html`.
