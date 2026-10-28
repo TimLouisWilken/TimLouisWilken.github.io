@@ -82,7 +82,7 @@
           <div class="stat"><span class="stat-label">Low</span><span class="stat-value" id="live-low">–</span><span class="stat-note" id="live-low-at"></span></div>
           <div class="stat"><span class="stat-label">Realised MAE, last 7 days</span><span class="stat-value" id="live-mae">–</span><span class="stat-note" id="live-mae-note"></span></div>
         </div>
-        <svg class="live-chart" id="live-chart" viewBox="0 0 600 220" preserveAspectRatio="none" role="img" aria-label="Hourly day-ahead price forecast with 90 % interval"></svg>
+        <div class="live-plot"><svg class="live-chart" id="live-chart" role="img" aria-label="Hourly day-ahead price forecast with 90 % interval"></svg></div>
       </div>
     </div>
   </section>
@@ -376,22 +376,45 @@
       document.getElementById('live-peak-at').textContent = 'at ' + String(d.hours[iMax]).padStart(2, '0') + ':00';
       document.getElementById('live-low').textContent = fmt(f[iMin]);
       document.getElementById('live-low-at').textContent = 'at ' + String(d.hours[iMin]).padStart(2, '0') + ':00';
-      // chart
-      const W = 600, H = 220, px = 8, pt = 22, pb = 26;
-      const lo = Math.min(...q05), hi = Math.max(...q95), span = (hi - lo) || 1;
-      const x = (i) => px + i * (W - 2 * px) / (n - 1);
-      const y = (v) => pt + (hi - v) * (H - pt - pb) / span;
-      const path = (arr) => arr.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1)).join(' ');
-      const band = path(q95) + ' ' + q05.map((v, i) => 'L' + x(n - 1 - i).toFixed(1) + ' ' + y(q05[n - 1 - i]).toFixed(1)).join(' ') + ' Z';
-      const font = '"Helvetica Neue", Helvetica, Arial, sans-serif';
-      const ticks = [0, 6, 12, 18, 23].map((h) => `<text x="${x(h).toFixed(1)}" y="${H - 4}" font-size="11" fill="#86868b" text-anchor="${h === 0 ? 'start' : h === 23 ? 'end' : 'middle'}" font-family='${font}'>${String(h).padStart(2, '0')}:00</text>`).join('');
-      const grid = [0.25, 0.5, 0.75].map((t) => `<line x1="0" x2="${W}" y1="${(pt + t * (H - pt - pb)).toFixed(1)}" y2="${(pt + t * (H - pt - pb)).toFixed(1)}" stroke="#2c2c2e" stroke-width="1" vector-effect="non-scaling-stroke"/>`).join('');
-      const labels = [[iMax, f[iMax], -10], [iMin, f[iMin], 20]].map(([i, v, dy]) => `<text x="${x(i).toFixed(1)}" y="${(y(v) + dy).toFixed(1)}" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle" font-family='${font}'>${fmt(v)}</text>`).join('');
-      document.getElementById('live-chart').innerHTML =
-        `<defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#64d2ff"/><stop offset="1" stop-color="#30d158"/></linearGradient></defs>` + grid +
-        `<path d="${band}" fill="#ffffff" opacity="0.1"/><path d="${path(f)}" fill="none" stroke="url(#lg)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>` +
-        `<circle cx="${x(iMax).toFixed(1)}" cy="${y(f[iMax]).toFixed(1)}" r="4" fill="#ffffff"/><circle cx="${x(iMin).toFixed(1)}" cy="${y(f[iMin]).toFixed(1)}" r="4" fill="#ffffff"/>` + ticks + labels;
+      // chart: drawn at the real pixel width of the card, so text and dots are never stretched
+      const svg = document.getElementById('live-chart');
+      const draw = () => {
+        const W = Math.max(200, Math.round(svg.parentNode.clientWidth)), mob = W < 520, H = mob ? 190 : 230;
+        const pl = 4, pr = mob ? 34 : 40, pt = 26, pb = 28;
+        const lo = Math.min(...q05, ...f), hi = Math.max(...q95, ...f);
+        const raw = (hi - lo) / 3, p10 = Math.pow(10, Math.floor(Math.log10(raw || 1)));
+        const step = [1, 2, 2.5, 5, 10].map((k) => k * p10).find((v) => v >= raw);
+        const y0 = Math.floor(lo / step) * step, y1 = Math.ceil(hi / step) * step;
+        const x = (i) => pl + i * (W - pl - pr) / (n - 1);
+        const y = (v) => pt + (y1 - v) * (H - pt - pb) / ((y1 - y0) || 1);
+        const path = (arr) => arr.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1)).join(' ');
+        const band = path(q95) + ' ' + q05.map((v, i) => 'L' + x(n - 1 - i).toFixed(1) + ' ' + y(q05[n - 1 - i]).toFixed(1)).join(' ') + ' Z';
+        const font = '"Helvetica Neue", Helvetica, Arial, sans-serif', fs = mob ? 11 : 12;
+        let grid = '';
+        for (let v = y0; v <= y1 + 1e-9; v += step) {
+          const yy = Math.round(y(v)) + 0.5;
+          grid += `<line x1="${pl}" x2="${W - pr + 4}" y1="${yy}" y2="${yy}" stroke="#2c2c2e" stroke-width="1"/>` +
+            `<text x="${W - pr + 8}" y="${yy + 4}" font-size="${fs}" fill="#86868b" font-family='${font}'>${Math.round(v)}</text>`;
+        }
+        const ticks = [0, 6, 12, 18].map((hr) => `<text x="${x(hr).toFixed(1)}" y="${H - 6}" font-size="${fs}" fill="#86868b" text-anchor="${hr === 0 ? 'start' : 'middle'}" font-family='${font}'>${String(d.hours[hr]).padStart(2, '0')}:00</text>`).join('');
+        const label = (i, above) => {
+          const cx = x(i), cy = y(f[i]), anchor = cx < 24 ? 'start' : cx > W - pr - 24 ? 'end' : 'middle';
+          let ty = above ? cy - 11 : cy + 20;
+          if (ty > H - pb - 2) ty = cy - 11;
+          if (ty < 12) ty = cy + 20;
+          return `<text x="${cx.toFixed(1)}" y="${ty.toFixed(1)}" font-size="13" font-weight="600" fill="#ffffff" text-anchor="${anchor}" font-family='${font}'>${fmt(f[i])}</text>`;
+        };
+        svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+        svg.innerHTML =
+          `<defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#64d2ff"/><stop offset="1" stop-color="#30d158"/></linearGradient></defs>` + grid +
+          `<path d="${band}" fill="#ffffff" opacity="0.1"/><path d="${path(f)}" fill="none" stroke="url(#lg)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>` +
+          `<circle cx="${x(iMax).toFixed(1)}" cy="${y(f[iMax]).toFixed(1)}" r="4" fill="#ffffff"/><circle cx="${x(iMin).toFixed(1)}" cy="${y(f[iMin]).toFixed(1)}" r="4" fill="#ffffff"/>` +
+          ticks + label(iMax, true) + label(iMin, false);
+      };
       document.getElementById('live-card').hidden = false;
+      draw();
+      let lastW = 0;
+      new ResizeObserver(() => { const w = Math.round(svg.parentNode.clientWidth); if (w && w !== lastW) { lastW = w; requestAnimationFrame(draw); } }).observe(svg.parentNode);
       // realised accuracy
       try {
         const h = (await (await fetch(base + 'history.json', { cache: 'no-store' })).json()).filter((r) => r.mae != null).slice(-7);

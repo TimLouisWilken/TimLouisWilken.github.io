@@ -177,7 +177,8 @@ a { color: inherit; text-decoration: none; }
 .stat-label { font-size: 0.8125rem; color: #a1a1a6; }
 .stat-value { margin-top: 0.35rem; font-size: clamp(2.25rem, 4.4vw, 3.5rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
 .stat-note { margin-top: 0.4rem; font-size: 0.8125rem; color: #86868b; }
-.live-chart { width: 100%; height: 220px; display: block; overflow: visible; }
+.live-chart { width: 100%; height: auto; display: block; overflow: visible; }
+.live-plot { min-width: 0; width: 100%; }
 
 /* --------------------------------------------------------------------------
    Project grid
